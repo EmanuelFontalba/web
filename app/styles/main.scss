@@ -5,24 +5,211 @@
   padding: 0.2em 0;
 }
 
-body {
-  background: #fafafa;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #333;
+$green: #0eff86;
+
+body, html {
+  background: rgb(253, 218, 0);
+  font-family: 'Alata', Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+main{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .logo {
+    width: 5rem;
+    mix-blend-mode: darken;
+    margin: 1rem;
+  }
+
+  .photo {
+    position: absolute;
+    width: 30rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(10deg);
+    background: rgb(253, 218, 0);
+    animation: rotateP1 5s infinite;
+
+    img.perezosillo {
+      width: 100%;
+      mix-blend-mode: darken;
+    }
+
+    img.thuglife {
+      position: absolute;
+      width: 27%;
+      top: 10%;
+      left: 45%;
+      transform: scaleX(-1) rotate(-10deg);
+      animation: moveThug 5s infinite;
+    }
+  }
+
+  h1, h2, h3 {
+    font-size: 7rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2rem;
+    top: 43%;
+    left: 10%;
+    color: black;
+    width: auto;
+
+    &::before {
+      content: "";
+      width: 5rem;
+      height: 3px;
+      background: white;
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      transform: rotate(-2deg);
+      z-index: -1;
+    }
+  }
+
+  h3 {
+    font-size: 2rem;
+    top: 60%;
+    left: 75%;
+    color: black;
+    width: auto;
+
+    &::before {
+      content: "";
+      width: 3rem;
+      height: 3px;
+      background: white;
+      position: absolute;
+      bottom: 5px;
+      right: 0;
+      transform: rotate(2deg);
+      z-index: -1;
+    }
+  }
+
+  .dont {
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    span{
+      width: 4rem;
+      z-index: 1;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    &::before{
+      content: "";
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      width: 100%;
+      height: 100%;
+      background: $green;
+      border-radius: 50%;
+      z-index: 0;
+      transition: .3s;
+    }
+
+    &::after{
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid black;
+      z-index: 2;
+    }
+
+    &:hover {
+      &::before{
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .not {
+    position: absolute;
+    width: 30rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 6px solid white;
+    opacity: 1;
+    transition: .3s;
+
+    &.none {
+      width: 0;
+      opacity: 0;
+    }
   }
 }
+
+@keyframes rotateP1{
+  20%{
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+
+  40%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  60%{
+    transform: translate(-50%, -50%) rotate(-10deg);
+  }
+
+  80%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100%{
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+}
+
+@keyframes moveThug {
+
+
+  20%{
+    left: 45%;
+  }
+
+  60%{
+    left: 43%;
+  }
+
+  80%{
+    left: 45%;
+  }
+
+}
+
+
