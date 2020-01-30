@@ -1,6 +1,10 @@
-@import './constants.scss';
+@import "./constants.scss";
 
-.logo {
+.intro {
+  position: relative;
+  height: 100vh;
+
+  .logo {
     width: 5rem;
     mix-blend-mode: darken;
     margin: 1rem;
@@ -30,7 +34,9 @@
     }
   }
 
-  h1.intro-title, h2.intro-left, h3.intro-right {
+  h1.intro-title,
+  h2.intro-left,
+  h3.intro-right {
     font-size: 7rem;
     color: white;
     position: absolute;
@@ -96,14 +102,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    span{
+    span {
       width: 4rem;
       z-index: 1;
       font-weight: 900;
       font-size: 1.2rem;
     }
 
-    &::before{
+    &::before {
       content: "";
       position: absolute;
       top: 0.5rem;
@@ -113,10 +119,10 @@
       background: $green;
       border-radius: 50%;
       z-index: 0;
-      transition: .3s;
+      transition: 0.3s;
     }
 
-    &::after{
+    &::after {
       content: "";
       position: absolute;
       top: -3px;
@@ -129,7 +135,7 @@
     }
 
     &:hover {
-      &::before{
+      &::before {
         top: 0;
         left: 0;
       }
@@ -144,49 +150,111 @@
     transform: translate(-50%, -50%);
     border: 6px solid white;
     opacity: 1;
-    transition: .3s;
+    transition: 0.3s;
 
     &.none {
       width: 0;
       opacity: 0;
     }
   }
+}
 
-  @keyframes rotateP1{
-    20%{
-      transform: translate(-50%, -50%) rotate(10deg);
+.summary {
+  .title-summary {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  .row-text-animate {
+    display: inline-flex;
+    transform: rotate(-3deg);
+    margin-top: -3.5rem;
+
+    &:last-child {
+      margin-bottom: 5rem;
     }
-  
-    40%{
-      transform: translate(-50%, -50%) rotate(0deg);
+
+    .text-animate {
+      white-space: nowrap;
+      animation: text-create-animation 15s linear infinite;
+      font-size: 8rem;
+      margin: 0;
+
+      &.with-border {
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        // text-shadow: 4px 0 0 black, -4px 0 0 black, 0 4px 0 black,
+        //   0 -4px 0 black, 2px 2px black, -2px -2px 0 black, 2px -2px 0 black,
+        //   -2px 2px 0 black;
+        color: $yellow;
+      }
+
+      span {
+        padding-right: 4rem;
+      }
     }
-  
-    60%{
-      transform: translate(-50%, -50%) rotate(-10deg);
-    }
-  
-    80%{
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-  
-    100%{
-      transform: translate(-50%, -50%) rotate(10deg);
+
+    &.inverse {
+      .text-animate {
+        animation: text-create-animation-inverse 15s linear infinite;
+      }
     }
   }
-  
-  @keyframes moveThug {
-  
-  
-    20%{
-      left: 45%;
-    }
-  
-    60%{
-      left: 43%;
-    }
-  
-    80%{
-      left: 45%;
-    }
-  
+}
+
+@keyframes text-create-animation {
+  0% {
+    transform: translate(0, 0);
   }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+@keyframes text-create-animation-inverse {
+  0% {
+    transform: translate(-100%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes rotateP1 {
+  20% {
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+
+  40% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  60% {
+    transform: translate(-50%, -50%) rotate(-10deg);
+  }
+
+  80% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+}
+
+@keyframes moveThug {
+  20% {
+    left: 45%;
+  }
+
+  60% {
+    left: 43%;
+  }
+
+  80% {
+    left: 45%;
+  }
+}
