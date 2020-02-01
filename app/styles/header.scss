@@ -12,6 +12,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 2;
 
   .discover-me {
     transform: rotate(90deg);

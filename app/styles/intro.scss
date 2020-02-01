@@ -160,6 +160,7 @@
 }
 
 .summary {
+  margin-bottom: 15rem;
   .title-summary {
     width: 100%;
     display: flex;
@@ -185,11 +186,11 @@
 
       &.with-border {
         -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: black;
+        -webkit-text-stroke-color: $yellow;
         // text-shadow: 4px 0 0 black, -4px 0 0 black, 0 4px 0 black,
         //   0 -4px 0 black, 2px 2px black, -2px -2px 0 black, 2px -2px 0 black,
         //   -2px 2px 0 black;
-        color: $yellow;
+        color: black;
       }
 
       span {
@@ -200,8 +201,21 @@
     &.inverse {
       .text-animate {
         animation: text-create-animation-inverse 15s linear infinite;
+        color: $yellow;
       }
     }
+  }
+}
+
+.zoom-section {
+  width: 100%;
+  height: 300vh;
+
+  p {
+    color: black;
+    font-size: 10rem;
+    text-align: center;
+    font-weight: 800;
   }
 }
 
