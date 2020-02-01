@@ -161,6 +161,11 @@
 
 .summary {
   margin-bottom: 15rem;
+  color: $yellow;
+  background: black;
+  z-index: 1;
+  position: relative;
+
   .title-summary {
     width: 100%;
     display: flex;
